@@ -843,7 +843,7 @@
               </div>
               <div style="pointer-events: all">
               <div class="slidertext" on:mousedown={lock_yaxis}>{(100*(1-InterventionAmt)).toFixed(2)}%</div>
-              <input class="range" type=range bind:value={OMInterventionAmt} min=0 max=1 step=0.01 on:mousedown={lock_yaxis}>
+              <input class="number" type=number bind:value={OMInterventionAmt} min=0 max=1 step=0.01 on:mousedown={lock_yaxis}>
               </div>
               </div>
             </div>
@@ -937,10 +937,10 @@
       <div class="paneltitle">Population Inputs</div>
       <div class="paneldesc" style="height:30px">Size of population.<br></div>
       <div class="slidertext">{format(",")(Math.round(N))}</div>
-      <input class="range" style="margin-bottom: 8px"type=range bind:value={logN} min={5} max=25 step=0.01>
+      <input class="number" style="margin-bottom: 8px" type=number bind:value={logN} min={5} max=25 step=0.01>
       <div class="paneldesc" style="height:29px; border-top: 1px solid #EEE; padding-top: 10px">Number of initial infections.<br></div>
       <div class="slidertext">{I0}</div>
-      <input class="range" type=range bind:value={I0} min={1} max=10000 step=1>
+      <input class="number" type=number bind:value={I0} min={1} max=10000 step=1>
     </div>
 
     <div class="column">
@@ -949,17 +949,17 @@
       <div class="paneldesc">Measure of contagiousness: the number of secondary infections each infected individual produces. <br></div>
       </div>
       <div class="slidertext">{R0}</div>
-      <input class="range" type=range bind:value={R0} min=0.01 max=10 step=0.01> 
+      <input class="number" type=number bind:value={R0} min=0.01 max=10 step=0.01> 
     </div> 
 
     <div class="column">
       <div class="paneltitle">Transmission Times</div>
       <div class="paneldesc" style="height:30px">Length of incubation period, {@html math_inline("T_{\\text{inc}}")}.<br></div>
       <div class="slidertext">{(D_incbation).toFixed(2)} days</div>
-      <input class="range" style="margin-bottom: 8px"type=range bind:value={D_incbation} min={0.15} max=24 step=0.0001>
+      <input class="number" style="margin-bottom: 8px"type=number bind:value={D_incbation} min={0.15} max=24 step=0.0001>
       <div class="paneldesc" style="height:29px; border-top: 1px solid #EEE; padding-top: 10px">Duration patient is infectious, {@html math_inline("T_{\\text{inf}}")}.<br></div>
       <div class="slidertext">{D_infectious} Days</div>
-      <input class="range" type=range bind:value={D_infectious} min={0} max=24 step=0.01>
+      <input class="number" type=number bind:value={D_infectious} min={0} max=24 step=0.01>
     </div>
 
     <div style="flex: 0 0 20; width:20px"></div>
@@ -968,30 +968,30 @@
       <div class="paneltitle">Mortality Statistics</div>
       <div class="paneldesc" style="height:30px">Case fatality rate.<br></div>
       <div class="slidertext">{(CFR*100).toFixed(2)} %</div>
-      <input class="range" style="margin-bottom: 8px" type=range bind:value={CFR} min={0} max=1 step=0.0001>
+      <input class="number" style="margin-bottom: 8px" type=number bind:value={CFR} min={0} max=1 step=0.0001>
       <div class="paneldesc" style="height:29px; border-top: 1px solid #EEE; padding-top: 10px">Time from end of incubation to death.<br></div>
       <div class="slidertext">{Time_to_death} Days</div>
-      <input class="range" type=range bind:value={Time_to_death} min={(D_infectious)+0.1} max=100 step=0.01>
+      <input class="number" type=number bind:value={Time_to_death} min={(D_infectious)+0.1} max=100 step=0.01>
     </div>
 
     <div class="column">
       <div class="paneltitle">Recovery Times</div>
       <div class="paneldesc" style="height:30px">Length of hospital stay<br></div>
       <div class="slidertext">{D_recovery_severe} Days</div>
-      <input class="range" style="margin-bottom: 8px" type=range bind:value={D_recovery_severe} min={0.1} max=100 step=0.01>
+      <input class="number" style="margin-bottom: 8px" type=number bind:value={D_recovery_severe} min={0.1} max=100 step=0.01>
       <div class="paneldesc" style="height:29px; border-top: 1px solid #EEE; padding-top: 10px">Recovery time for mild cases<br></div>
       <div class="slidertext">{D_recovery_mild} Days</div>
-      <input class="range" type=range bind:value={D_recovery_mild} min={0.5} max=100 step=0.01>
+      <input class="number" type=number bind:value={D_recovery_mild} min={0.5} max=100 step=0.01>
     </div>
 
     <div class="column">
       <div class="paneltitle">Care statistics</div>
       <div class="paneldesc" style="height:30px">Hospitalization rate.<br></div>
       <div class="slidertext">{(P_SEVERE*100).toFixed(2)} %</div>
-      <input class="range" style="margin-bottom: 8px"type=range bind:value={P_SEVERE} min={0} max=1 step=0.0001>      
+      <input class="number" style="margin-bottom: 8px"type=number bind:value={P_SEVERE} min={0} max=1 step=0.0001>      
       <div class="paneldesc" style="height:29px; border-top: 1px solid #EEE; padding-top: 10px">Time to hospitalization.<br></div>
       <div class="slidertext">{D_hospital_lag} Days</div>
-      <input class="range" type=range bind:value={D_hospital_lag} min={0.5} max=100 step=0.01>
+      <input class="number" type=number bind:value={D_hospital_lag} min={0.5} max=100 step=0.01>
     </div>
 
   </div>
